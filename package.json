@@ -1,0 +1,19 @@
+{
+  "name": "movie-booking-node-app",
+  "version": "1.0.0",
+  "description": "A user-friendly movie booking application built with Node.js.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "generate:posters": "node scripts/generate-posters.js",
+    "check": "node --check server.js && node --check public/app.js && node --check scripts/generate-posters.js"
+  },
+  "keywords": [
+    "movie",
+    "booking",
+    "nodejs",
+    "tickets"
+  ],
+  "author": "",
+  "license": "MIT"
+}
