@@ -4,6 +4,7 @@ const path = require("path");
 const crypto = require("crypto");
 
 const PORT = Number(process.env.PORT || 3000);
+const HOST = '0.0.0.0';
 const ROOT_DIR = __dirname;
 const PUBLIC_DIR = path.join(ROOT_DIR, "public");
 const DATA_DIR = path.join(ROOT_DIR, "data");
@@ -422,4 +423,7 @@ ensureDataFile()
   .catch((error) => {
     console.error(error);
     process.exit(1);
+  });
+  app.listen(PORT, HOST, () => {
+  console.log(`Server running on http://${HOST}:${PORT}`);
   });
