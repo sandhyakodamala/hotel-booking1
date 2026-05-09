@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineSeat Movie Booking</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Now booking</p>
+        <h1>CineSeat</h1>
+      </div>
+      <div class="header-actions" aria-label="Cinema details">
+        <span class="status-dot"></span>
+        <span>4 screens open today</span>
+      </div>
+    </header>
+
+    <section class="toolbar" aria-label="Movie filters">
+      <label class="search-box">
+        <span>Search</span>
+        <input
+          id="searchInput"
+          type="search"
+          autocomplete="off"
+          placeholder="Movie, genre, or language"
+        />
+      </label>
+      <div id="genreFilters" class="genre-filters" aria-label="Genres"></div>
+    </section>
+
+    <main class="layout">
+      <section class="movies-section" aria-labelledby="moviesHeading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Pick a show</p>
+            <h2 id="moviesHeading">Movies playing today</h2>
+          </div>
+          <span id="movieCount" class="count-pill">0 movies</span>
+        </div>
+        <div id="movieGrid" class="movie-grid"></div>
+      </section>
+
+      <aside class="booking-panel" aria-labelledby="bookingHeading">
+        <div class="stepper" aria-label="Booking steps">
+          <span class="step is-active">Movie</span>
+          <span class="step is-active">Seats</span>
+          <span class="step">Guest</span>
+        </div>
+
+        <div id="selectedMovie" class="selected-movie"></div>
+
+        <section class="panel-block" aria-labelledby="showtimeHeading">
+          <div class="panel-title">
+            <h2 id="showtimeHeading">Showtime</h2>
+            <span id="selectedFormat"></span>
+          </div>
+          <div id="showtimeGrid" class="showtime-grid"></div>
+        </section>
+
+        <section class="panel-block" aria-labelledby="seatsHeading">
+          <div class="panel-title">
+            <h2 id="seatsHeading">Seats</h2>
+            <span id="seatCounter">0 selected</span>
+          </div>
+          <div class="seat-legend" aria-label="Seat legend">
+            <span><i class="legend available"></i>Available</span>
+            <span><i class="legend selected"></i>Selected</span>
+            <span><i class="legend reserved"></i>Booked</span>
+          </div>
+          <div class="screen">SCREEN</div>
+          <div id="seatMap" class="seat-map" aria-label="Seat map"></div>
+        </section>
+
+        <section class="panel-block" aria-labelledby="guestHeading">
+          <div class="panel-title">
+            <h2 id="guestHeading">Guest details</h2>
+            <span id="totalAmount">Rs. 0</span>
+          </div>
+          <form id="bookingForm" class="booking-form">
+            <label>
+              <span>Name</span>
+              <input id="guestName" name="name" type="text" minlength="2" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input id="guestEmail" name="email" type="email" required />
+            </label>
+            <label>
+              <span>Phone</span>
+              <input id="guestPhone" name="phone" type="tel" required />
+            </label>
+            <button id="bookButton" type="submit" class="primary-button" disabled>
+              Confirm booking
+            </button>
+          </form>
+        </section>
+      </aside>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <div id="confirmationModal" class="modal is-hidden" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <button id="closeModal" class="icon-button" type="button" aria-label="Close">x</button>
+        <p class="eyebrow">Booking confirmed</p>
+        <h2 id="confirmationTitle">Your seats are booked</h2>
+        <div id="confirmationDetails" class="confirmation-details"></div>
+        <div class="modal-actions">
+          <button id="printTicket" type="button" class="secondary-button">Print ticket</button>
+          <button id="doneButton" type="button" class="primary-button">Done</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
