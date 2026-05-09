@@ -424,6 +424,6 @@ ensureDataFile()
     console.error(error);
     process.exit(1);
   });
-  app.listen(PORT, HOST, () => {
-  console.log(`Server running on http://${HOST}:${PORT}`);
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
   });
